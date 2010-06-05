@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>806414965</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$TOOLKIT_DIR$\inc\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\efsl\src\dir.c</file>
+      <file>$PROJ_DIR$\efsl\src\debug.c</file>
+      <file>$PROJ_DIR$\efsl\src\disc.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\regressiontest.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\time.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ui.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\debug.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\disc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\dir.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\efs.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\extract.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\fat.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\file.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\fs.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ioman.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ioman_v2.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ls.pbi</file>
+      <file>$PROJ_DIR$\mkfs.h</file>
+      <file>$PROJ_DIR$\ls.h</file>
+      <file>$PROJ_DIR$\ui.h</file>
+      <file>$PROJ_DIR$\fat.h</file>
+      <file>$PROJ_DIR$\dir.h</file>
+      <file>$PROJ_DIR$\time.h</file>
+      <file>$PROJ_DIR$\extract.h</file>
+      <file>$PROJ_DIR$\partition.h</file>
+      <file>$PROJ_DIR$\fs.h</file>
+      <file>$PROJ_DIR$\file.h</file>
+      <file>$PROJ_DIR$\plibc.h</file>
+      <file>$PROJ_DIR$\ioman.h</file>
+      <file>$PROJ_DIR$\error.h</file>
+      <file>$PROJ_DIR$\efsl\inc\types.h</file>
+      <file>$PROJ_DIR$\efsl\inc\ui.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\debug.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\disc.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\dir.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\efs.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\extract.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\fat.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\file.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\fs.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ioman.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ioman_v2.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\ls.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\mkfs.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\partition.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\plibc.o</file>
+      <file>$PROJ_DIR$\debug.h</file>
+      <file>$PROJ_DIR$\disc.h</file>
+      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2103.h</file>
+      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$PROJ_DIR$\efs.h</file>
+      <file>$PROJ_DIR$\types.h</file>
+      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2102.h</file>
+      <file>$PROJ_DIR$\interfaces\arm_spi.h</file>
+      <file>$PROJ_DIR$\interface.h</file>
+      <file>$PROJ_DIR$\lpc_config.h</file>
+      <file>$TOOLKIT_DIR$\inc\ycheck.h</file>
+      <file>$PROJ_DIR$\uart.c</file>
+      <file>$PROJ_DIR$\inttypes.h</file>
+      <file>$TOOLKIT_DIR$\inc\string.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\SD_efsl_test.pbd</file>
+      <file>$PROJ_DIR$\interfaces\efsl_dbg_printf_arm.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\SD_efsl_test.out</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Threads.h</file>
+      <file>$TOOLKIT_DIR$\inc\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Product_string.h</file>
+      <file>$PROJ_DIR$\LPC213x.h</file>
+      <file>$PROJ_DIR$\lpcUART.h</file>
+      <file>$PROJ_DIR$\uart.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Config_Normal.h</file>
+      <file>$PROJ_DIR$\efsl\src\ls.h</file>
+      <file>$PROJ_DIR$\efsl\src\mkfs.h</file>
+      <file>$PROJ_DIR$\efsl\src\partition.h</file>
+      <file>$PROJ_DIR$\efsl\src\plibc.h</file>
+      <file>$PROJ_DIR$\efsl\src\time.h</file>
+      <file>$PROJ_DIR$\efsl\src\types.h</file>
+      <file>$PROJ_DIR$\efsl\src\ui.h</file>
+      <file>$PROJ_DIR$\efsl\inc\ls.h</file>
+      <file>$PROJ_DIR$\efsl\inc\ioman_v2.h</file>
+      <file>$PROJ_DIR$\efsl\inc\mkfs.h</file>
+      <file>$PROJ_DIR$\efsl\inc\partition.h</file>
+      <file>$PROJ_DIR$\efsl\inc\plibc.h</file>
+      <file>$PROJ_DIR$\efsl\inc\time.h</file>
+      <file>$PROJ_DIR$\efsl\inc\dir.h</file>
+      <file>$PROJ_DIR$\efsl\inc\debug.h</file>
+      <file>$PROJ_DIR$\efsl\inc\disc.h</file>
+      <file>$PROJ_DIR$\efsl\inc\error.h</file>
+      <file>$PROJ_DIR$\efsl\inc\efs.h</file>
+      <file>$PROJ_DIR$\efsl\inc\extract.h</file>
+      <file>$PROJ_DIR$\efsl\inc\fat.h</file>
+      <file>$PROJ_DIR$\efsl\inc\file.h</file>
+      <file>$PROJ_DIR$\efsl\inc\fs.h</file>
+      <file>$PROJ_DIR$\efsl\inc\interface.h</file>
+      <file>$PROJ_DIR$\efsl\inc\ioman.h</file>
+      <file>$PROJ_DIR$\efsl\src\debug.h</file>
+      <file>$PROJ_DIR$\efsl\src\disc.h</file>
+      <file>$PROJ_DIR$\efsl\src\dir.h</file>
+      <file>$PROJ_DIR$\efsl\src\efs.h</file>
+      <file>$PROJ_DIR$\efsl\src\error.h</file>
+      <file>$PROJ_DIR$\efsl\src\extract.h</file>
+      <file>$PROJ_DIR$\efsl\src\fat.h</file>
+      <file>$PROJ_DIR$\efsl\src\file.h</file>
+      <file>$PROJ_DIR$\efsl\src\fs.h</file>
+      <file>$PROJ_DIR$\efsl\src\interface.h</file>
+      <file>$PROJ_DIR$\efsl\src\ioman.h</file>
+      <file>$PROJ_DIR$\efsl\src\ioman_v2.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\mkfs.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\partition.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\plibc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\regressiontest.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\time.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ui.pbi</file>
+      <file>$PROJ_DIR$\config.h</file>
+      <file>$TOOLKIT_DIR$\inc\stdlib.h</file>
+      <file>$TOOLKIT_DIR$\inc\stdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\time.h</file>
+      <file>$PROJ_DIR$\efsl\src\efs.c</file>
+      <file>$PROJ_DIR$\efsl\src\extract.c</file>
+      <file>$PROJ_DIR$\efsl\src\fat.c</file>
+      <file>$PROJ_DIR$\efsl\src\file.c</file>
+      <file>$PROJ_DIR$\efsl\src\fs.c</file>
+      <file>$PROJ_DIR$\efsl\src\ioman.c</file>
+      <file>$PROJ_DIR$\efsl\src\ioman_v2.c</file>
+      <file>$PROJ_DIR$\efsl\src\ls.c</file>
+      <file>$PROJ_DIR$\efsl\src\mkfs.c</file>
+      <file>$PROJ_DIR$\efsl\src\partition.c</file>
+      <file>$PROJ_DIR$\efsl\src\plibc.c</file>
+      <file>$PROJ_DIR$\efsl\src\regressiontest.c</file>
+      <file>$PROJ_DIR$\efsl\src\time.c</file>
+      <file>$PROJ_DIR$\efsl\src\ui.c</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 66</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 62 59 0 67 68 69 70 71 72 51 55 52 58 75 61 74</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 62 59 0 67 78 68 69 70 71 72 51 55 52 58 75 61 74 53 54 121 57 56 49 64 50 32 31 30 26 27 28 25 29 24 23 22 21 20</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\dir.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 105 107 112 84 109 110 83 111 81 104 113 82 103 108</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 105</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\debug.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 103 84</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 103 84</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\disc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 104 107 112 84 113 82 103 108</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 104</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 65</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\uart.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 77</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 76</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51 55 52 75 61 74 58</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 51 55 52 75 61 74 58</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\SD_efsl_test.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 9 11 10 12 13 14 15 16 17 18 19 66 115 116 117 118 119 77 120</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\efs.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 106 84 112 104 107 113 82 103 108 81 111 83 110 105 109 85</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 106 84</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\extract.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 108 104 107 112 84 113 82 103</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 108</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\fat.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 111 107 112 84 81 104 113 82 103 108 83 109 110 105</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 111</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\file.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 110 107 112 84 83 111 81 104 113 82 103 108 105 109</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 110</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\fs.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 111 107 112 84 81 104 113 82 103 108 83 109 110 105</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 111</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\ioman.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 113 112 84 107 82 103</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 113 112 84</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\ioman_v2.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 114 112 84 82 103</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 114 112 84</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\ls.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 111 107 112 84 81 104 113 82 103 108 83 105 109 110</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 79</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\mkfs.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 115</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 80 81 107 112 84 104 113 82 103 108</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 80 81</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\partition.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 116</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81 107 112 84 104 113 82 103 108</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 81</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\plibc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 117</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 82 103 84</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 82 103 84</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\regressiontest.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 118</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 123 59 0 67 68 69 70 71 122 104 107 112 84 113 82 103 108 81 111 83 110 105 109 80</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 123 59 0 67 78 68 69 70 71 122</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\time.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 119</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83 84 111 107 112 81 104 113 82 103 108</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 83 84</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\efsl\src\ui.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 120</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 85 111 107 112 84 81 104 113 82 103 108 83 109 110 105</file>
+        </tool>
+        <tool>
+          <name>ICCARM</name>
+          <file> 85 111</file>
+        </tool>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\main.c</name>
+      <tool>ICCARM</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>ILINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+
