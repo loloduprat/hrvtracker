@@ -38,7 +38,8 @@
 #include "interrupts.h"   //timers/interrupt functions
 #include "uart.h"         //UART serial communication functions
 #include "spi.h"          //SPI interface functions
-#include "mmc.h"
+#include "mmc.h"          //SD card read/write functions
+#include "gps.h"          //GPS message parsing functions
 
 /** local definitions **/
 
@@ -57,7 +58,10 @@ volatile int led_counter = 0;
 /** private data **/
 //buffer for command and history
 unsigned char SD_buffer[MMC_DATA_SIZE];
-
+unsigned char GPS_buffer[GPS_BUFFER_SIZE];
+int gps_msg_length = 0;
+unsigned char ch0;
+char gps_message_complete = 0;
 
 /** external functions **/
 __interwork extern void disk_timerproc (void);
@@ -127,6 +131,22 @@ void Timer1_ISR(void) {
   }
 }
 
+void Uart1_ISR(void) {
+  int dummy;
+  dummy = U1IIR;    //read IIR to clear interrupt
+  if(U1LSR_bit.DR == 1) {
+    ch0 = U1RBR;
+    //Log data from GPS into a buffer, and detect if end of a message has been received (denoted by '\n')
+    if (gps_message_complete == 0 && gps_msg_length < GPS_BUFFER_SIZE) {
+      GPS_buffer[gps_msg_length] = ch0;
+      gps_msg_length++;
+      if (ch0 == '\n') {
+        gps_message_complete = 1;  
+      }
+    }
+  }
+}
+
 
 /** private functions **/
 //System initialization
@@ -172,29 +192,28 @@ void Init(void)
   PLLFEED = 0x55; 
 }
 
-unsigned long get_fattime ()
-{
-    /* Pack date and time into a DWORD variable */
-    return  0;
-}
-
-
 /** public functions **/
 void main(void)
 {
 
-  
-  char led_is_on = 0;
+  const char GPS_msg[] = {0xa0, 0xa1, 0x00, 0x09, 0x08, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x09, 0x0d, 0x0a};  
   __disable_interrupt();
+  
   //System Init
   Init();
   //Init VIC
   VIC_Init();
+  
   //Initialise the UART communications
   uart0Init(UART0_BAUD);
+  uart1Init(UART1_BAUD);
+  Install_IRQ(VIC_UART1, Uart1_ISR, 7);
+  U1IER = 0x1;    //start interrupts when characters received on UART1
+        
   //Initialise the timer
   uart0Puts("Initialising timer1...\r\n");
   Timer1_init();
+  
   //Initialise the SPI interface
   uart0Puts("Initialising SPI...\r\n");
   spi_init();
@@ -208,15 +227,16 @@ void main(void)
      uart0Puts("SD card NOT found\r\n");
   }
   
+  //Set the GPS receiver to only output RMC messages
+  //Ref: Application note AN0003, "Binary messages of SkyTraq venus 6 GPS receiver"
+  //Send this message down UART1 to the GPS card
+  uart1Puts(GPS_msg);
+  
   //Write some data to the MMC card
-  sprintf(SD_buffer, "Yo-yo-yo, Supercalifragilisticexpialidocious, 1984\r\n1985\r\n1986\r\n");
-//  SD_buffer[0] = 'H';
-//  SD_buffer[1] = 'i';
-//  SD_buffer[2] = '\0';
-  writeBlockMMC(10, SD_buffer);
+//  writeBlockMMC(10, SD_buffer);
   //Read some data from the MMC card
-  readBlockMMC(10, SD_buffer);
-  uart0Puts(SD_buffer);
+//  readBlockMMC(10, SD_buffer);
+//  uart0Puts(SD_buffer);
   
    __enable_interrupt();
   //Enable Fast GPIO
@@ -234,17 +254,29 @@ void main(void)
   
   while(1)
   {
-    
-    if (led_on && !led_is_on) {
-      FIOCLR = (1<<26);    
-//    readBlockMMC(10, SD_buffer);
-    uart0Puts(SD_buffer);
-      led_is_on = 1;
-    }
-    else if (!led_on && led_is_on) {
-      FIOSET = (1<<26);
-//      uart0Puts("LED OFF\r\n");
-      led_is_on = 0;
+
+   // if(U1LSR_bit.DR == 1) { //There is data waiting from the GPS to send to the PC
+   //     while (U1LSR_bit.DR == 1) {
+   //      
+   //     }
+   // }
+    if(gps_message_complete) {
+      //parse the GPS message
+      if (parseGPS(GPS_buffer)) {
+        if(GPS_Fix == 'A') {
+          uart0Puts("GPS fix, valid position\r\n"); 
+          FIOCLR = (1 << 26);
+        } else {
+          uart0Puts("No GPS fix\r\n");          
+        }
+      }
+      //U0THR = GPS_Fix;
+      //reset flags to indicate this message has been handled
+      gps_msg_length = 0;
+      gps_message_complete = 0;
+      
     }
   }
+  
 }
+

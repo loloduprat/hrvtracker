@@ -94,6 +94,8 @@ unsigned int * VectCntl = (unsigned int *)&VICVectCntl0;
   //Disable Interrupt
   VICIntEnClear = 1<<IntNumber;
   
+  uart0Puts("installing IRQ...\r\n");
+  
   if(VIC_CHANNELS > channel)
   {//Vectired IRQ
     //Set interrupt Vector

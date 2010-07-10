@@ -2,98 +2,112 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>3135405875</fileChecksum>
+  <fileChecksum>2166440709</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\Debug\Obj\interrupts.o</file>
-      <file>$PROJ_DIR$\interrupts.c</file>
-      <file>$PROJ_DIR$\interrupts.h</file>
-      <file>$PROJ_DIR$\main.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
-      <file>$PROJ_DIR$\main.h</file>
-      <file>$PROJ_DIR$\uart.c</file>
-      <file>$PROJ_DIR$\uart.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
+      <file>$PROJ_DIR$\gps.c</file>
       <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\spi.o</file>
       <file>$PROJ_DIR$\Debug\Obj\interrupts.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\uart.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\spi.pbi</file>
-      <file>$PROJ_DIR$\Debug\Exe\SD_card_text5.out</file>
-      <file>$PROJ_DIR$\Debug\Obj\SD_card_text5.pbd</file>
-      <file>$TOOLKIT_DIR$\inc\ycheck.h</file>
-      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2103.h</file>
-      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2102.h</file>
-      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
-      <file>$TOOLKIT_DIR$\inc\stdio.h</file>
-      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.o</file>
+      <file>$PROJ_DIR$\Debug\Obj\interrupts.o</file>
       <file>$TOOLKIT_DIR$\inc\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\spi.pbi</file>
+      <file>$PROJ_DIR$\interrupts.c</file>
+      <file>$PROJ_DIR$\gps.h</file>
+      <file>$PROJ_DIR$\interrupts.h</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\main.h</file>
+      <file>$PROJ_DIR$\mmc.c</file>
+      <file>$PROJ_DIR$\mmc.h</file>
+      <file>$PROJ_DIR$\spi.c</file>
+      <file>$PROJ_DIR$\spi.h</file>
+      <file>$PROJ_DIR$\uart.c</file>
+      <file>$PROJ_DIR$\uart.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\uart.o</file>
       <file>$TOOLKIT_DIR$\inc\DLib_Defaults.h</file>
       <file>$TOOLKIT_DIR$\inc\DLib_Product.h</file>
       <file>$TOOLKIT_DIR$\inc\xencoding_limits.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\sd_raw.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\fat16.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\fat16.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\sd_raw.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\rootdir.o</file>
-      <file>$PROJ_DIR$\Debug\Obj\rootdir.pbi</file>
-      <file>$TOOLKIT_DIR$\lib\shs_l.a</file>
       <file>$TOOLKIT_DIR$\inc\DLib_Config_Normal.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\fat16.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\sd_raw.pbi</file>
       <file>$PROJ_DIR$\LPC2103.icf</file>
       <file>$PROJ_DIR$\Debug\Obj\mmc.pbi</file>
-      <file>$TOOLKIT_DIR$\lib\rt4t_al.a</file>
+      <file>$PROJ_DIR$\Debug\Obj\rootdir.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\shs_l.a</file>
       <file>$PROJ_DIR$\Debug\Obj\mmc.o</file>
       <file>$TOOLKIT_DIR$\lib\dl4t_al_in.a</file>
-      <file>$PROJ_DIR$\spi.c</file>
-      <file>$PROJ_DIR$\spi.h</file>
+      <file>$TOOLKIT_DIR$\inc\string.h</file>
+      <file>$TOOLKIT_DIR$\lib\rt4t_al.a</file>
       <file>$TOOLKIT_DIR$\inc\DLib_Threads.h</file>
-      <file>$TOOLKIT_DIR$\doc\infocenter\index.ENU.html</file>
-      <file>$PROJ_DIR$\mmc.c</file>
-      <file>$PROJ_DIR$\mmc.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\SD_card_text5.out</file>
+      <file>$PROJ_DIR$\Debug\Obj\SD_card_text5.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2103.h</file>
       <file>$PROJ_DIR$\sd_raw.c</file>
+      <file>$TOOLKIT_DIR$\inc\NXP\iolpc2102.h</file>
       <file>$PROJ_DIR$\rootdir.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\gps.o</file>
+      <file>$TOOLKIT_DIR$\inc\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\inc\stdlib.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\gps.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\DLib_Product_string.h</file>
       <file>$PROJ_DIR$\rootdir.h</file>
+      <file>$TOOLKIT_DIR$\inc\stdint.h</file>
+      <file>$TOOLKIT_DIR$\inc\inttypes.h</file>
       <file>$PROJ_DIR$\sd_raw.h</file>
       <file>$PROJ_DIR$\fat16.c</file>
       <file>$PROJ_DIR$\fat16.h</file>
-      <file>$TOOLKIT_DIR$\inc\ysizet.h</file>
-      <file>$TOOLKIT_DIR$\inc\string.h</file>
-      <file>$TOOLKIT_DIR$\inc\DLib_Product_string.h</file>
-      <file>$TOOLKIT_DIR$\inc\stdlib.h</file>
-      <file>$TOOLKIT_DIR$\inc\inttypes.h</file>
-      <file>$TOOLKIT_DIR$\inc\stdint.h</file>
       <file>$PROJ_DIR$\Debug\Exe\SD_card_text5.hex</file>
+      <file>$TOOLKIT_DIR$\inc\io_macros.h</file>
+      <file>$TOOLKIT_DIR$\inc\stdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
     </outputs>
     <file>
-      <name>[ROOT_NODE]</name>
+      <name>$PROJ_DIR$\gps.c</name>
       <outputs>
         <tool>
-          <name>ILINK</name>
-          <file> 14</file>
+          <name>ICCARM</name>
+          <file> 43</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46</file>
         </tool>
       </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 33 44 7 21 24 22 23 35 38 47 10 13</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33 44 7 21 22 23 35 38 47 10 13</file>
+        </tool>
+      </inputs>
     </file>
     <file>
       <name>$PROJ_DIR$\interrupts.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 11</file>
+          <name>ICCARM</name>
+          <file> 6</file>
         </tool>
         <tool>
-          <name>ICCARM</name>
-          <file> 0</file>
+          <name>BICOMP</name>
+          <file> 3</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 17 18 19</file>
+          <name>ICCARM</name>
+          <file> 39 41 55</file>
         </tool>
         <tool>
-          <name>ICCARM</name>
-          <file> 17 18 19</file>
+          <name>BICOMP</name>
+          <file> 39 41 55</file>
         </tool>
       </inputs>
     </file>
@@ -101,22 +115,68 @@
       <name>$PROJ_DIR$\main.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 9</file>
+          <name>ICCARM</name>
+          <file> 5</file>
         </tool>
         <tool>
-          <name>ICCARM</name>
-          <file> 4</file>
+          <name>BICOMP</name>
+          <file> 1</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 17 18 19 21 16 20 22 23 24 25 41 51 52 53 54 5 2 7 55 56 40 44</file>
+          <name>ICCARM</name>
+          <file> 39 41 55 57 44 56 7 21 24 22 23 35 38 33 47 45 13 11 19 50 49 17 15 10</file>
         </tool>
         <tool>
+          <name>BICOMP</name>
+          <file> 39 41 55 57 44 56 7 21 22 23 35 38 33 47 45 13 11 19 50 49 17 15 10</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\mmc.c</name>
+      <outputs>
+        <tool>
           <name>ICCARM</name>
-          <file> 17 18 19 21 16 20 22 23 33 24 25 41 51 52 53 54 5 2 7 55 56 40 44</file>
+          <file> 31</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 39 41 55 15 56 44 7 21 24 22 23 35 38 19 50 49</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39 41 55 15 56 44 7 21 22 23 35 38 19 50 49</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\spi.c</name>
+      <outputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 2</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCARM</name>
+          <file> 39 41 55 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39 41 55 17</file>
         </tool>
       </inputs>
     </file>
@@ -124,37 +184,46 @@
       <name>$PROJ_DIR$\uart.c</name>
       <outputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 12</file>
+          <name>ICCARM</name>
+          <file> 20</file>
         </tool>
         <tool>
-          <name>ICCARM</name>
-          <file> 8</file>
+          <name>BICOMP</name>
+          <file> 4</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 17 18 19 7 55 16 56 22 23 24 25 41 5</file>
+          <name>ICCARM</name>
+          <file> 39 41 55 19 50 44 49 7 21 24 22 23 35 13</file>
         </tool>
         <tool>
-          <name>ICCARM</name>
-          <file> 17 18 19 7 55 16 56 22 23 33 24 25 41 5</file>
+          <name>BICOMP</name>
+          <file> 39 41 55 19 50 44 49 7 21 22 23 35 13</file>
         </tool>
       </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>ILINK</name>
+          <file> 36</file>
+        </tool>
+      </outputs>
     </file>
     <file>
       <name>$PROJ_DIR$\Debug\Exe\SD_card_text5.out</name>
       <outputs>
         <tool>
           <name>OBJCOPY</name>
-          <file> 57</file>
+          <file> 54</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ILINK</name>
-          <file> 34 0 4 37 10 8 32 36 38</file>
+          <file> 27 43 6 5 31 2 20 30 34 32</file>
         </tool>
       </inputs>
     </file>
@@ -163,53 +232,7 @@
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 11 9 35 13 12</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\spi.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 13</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 10</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 17 18 19 40</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 17 18 19 40</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\mmc.c</name>
-      <outputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 35</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 37</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>BICOMP</name>
-          <file> 17 18 19 44 20 16 22 23 24 25 41 51 7 55 56</file>
-        </tool>
-        <tool>
-          <name>ICCARM</name>
-          <file> 17 18 19 44 20 16 22 23 33 24 25 41 51 7 55 56</file>
+          <file> 46 3 1 28 8 4</file>
         </tool>
       </inputs>
     </file>
@@ -218,17 +241,17 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 29</file>
+          <file> 26</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 52 16 22 23 24 25 41 51 53 48 20</file>
+          <name>ICCARM</name>
+          <file> 33 44 7 21 24 22 23 35 38 47 51</file>
         </tool>
         <tool>
-          <name>ICCARM</name>
-          <file> 52 16 22 23 33 24 25 41 51 53 48</file>
+          <name>BICOMP</name>
+          <file> 33 44 7 21 22 23 35 38 47 51 56</file>
         </tool>
       </inputs>
     </file>
@@ -237,17 +260,17 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 31</file>
+          <file> 29</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 47 56 16 22 23 24 25 41 50 48 20 51</file>
+          <name>ICCARM</name>
+          <file> 48 49 44 7 21 24 22 23 35 53</file>
         </tool>
         <tool>
-          <name>ICCARM</name>
-          <file> 47 56 16 22 23 33 24 25 41 50</file>
+          <name>BICOMP</name>
+          <file> 48 49 44 7 21 22 23 35 53 51 56 38</file>
         </tool>
       </inputs>
     </file>
@@ -256,17 +279,17 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 27</file>
+          <file> 25</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>BICOMP</name>
-          <file> 20 16 22 23 24 25 41 51 50 56 48 54 52 53</file>
+          <name>ICCARM</name>
+          <file> 56 44 7 21 24 22 23 35 38</file>
         </tool>
         <tool>
-          <name>ICCARM</name>
-          <file> 20 16 22 23 33 24 25 41 51</file>
+          <name>BICOMP</name>
+          <file> 56 44 7 21 22 23 35 38 53 49 51 45 33 47</file>
         </tool>
       </inputs>
     </file>

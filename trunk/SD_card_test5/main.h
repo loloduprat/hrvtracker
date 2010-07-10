@@ -33,6 +33,7 @@
 //#define PCLK    29491200UL   //Peripheral clock = CCLK / APBDIV_VAL 
 //UART0 baud setting
 #define UART0_BAUD 115200
+#define UART1_BAUD 38400
 
 /** default settings **/
 
@@ -44,5 +45,8 @@ extern volatile unsigned short int timer1_counter;
 
 unsigned int processorClockFrequency(void);
 unsigned int peripheralClockFrequency(void);
+
+#define GPS_BUFFER_SIZE 100  //max. 64 bytes expected in a GPS message...?
+
 
 #endif //__MAIN_H

@@ -153,7 +153,7 @@ int uart0TxEmpty(void);
 void uart0TxFlush(void);
 int uart0Getch(void);
 
-void uart1Init(uint16_t baud, uint8_t mode, uint8_t fmode);
+void uart1Init(int baud);
 int uart1Putch(int ch);
 uint16_t uart1Space(void);
 const char *uart1Puts(const char *string);
