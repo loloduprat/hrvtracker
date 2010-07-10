@@ -48,9 +48,7 @@
 
 
 
-
-/*    baudrate divisor - use UART_BAUD macro
- */
+//baud in bps eg:115200
 void uart0Init(int baud)
 {
   
@@ -118,33 +116,31 @@ int uart0Getch(void)
   return -1;
 }
 
-/*    baudrate divisor - use UART_BAUD macro
- *    mode - see typical modes (uart.h)
- *    fmode - see typical fmodes (uart.h)
- *    NOTE: uart0Init(UART_BAUD(9600), UART_8N1, UART_FIFO_8); 
- */
-void uart1Init(uint16_t baud, uint8_t mode, uint8_t fmode)
+
+void uart1Init(int baud)
 {
-  // setup Pin Function Select Register (Pin Connect Block) 
-  // make sure old values of Bits 0-4 are masked out and
-  // set them according to UART0-Pin-Selection
-  PINSEL0 = (PINSEL0 & ~UART1_PINMASK) | UART1_PINSEL;
-
-  U1IER = 0x00;             // disable all interrupts
-  U1IIR = 0x00;             // clear interrupt ID register
-  //U1LSR = 0x00;             // clear line status register
-
-  // set the baudrate - DLAB must be set to access DLL/DLM
-  U1LCR = (1<<UART1_LCR_DLAB); // set divisor latches (DLAB)
-  U1DLL = (uint8_t)baud;         // set for baud low byte
-  U1DLM = (uint8_t)(baud >> 8);  // set for baud high byte
   
-  // set the number of characters and other
-  // user specified operating parameters
-  // Databits, Parity, Stopbits - Settings in Line Control Register
-  U1LCR = (mode & ~(1<<UART1_LCR_DLAB)); // clear DLAB "on-the-fly"
-  // setup FIFO Control Register (fifo-enabled + xx trig) 
-  U1FCR = fmode;
+  unsigned int divisor = peripheralClockFrequency() / (16 * baud);
+
+  //set Line Control Register (8 bit, 1 stop bit, no parity, enable DLAB)
+  U1LCR_bit.WLS   = 0x3;    //8 bit
+  U1LCR_bit.SBS   = 0x0;    //1 stop bit
+  U1LCR_bit.PE    = 0x0;    //no parity
+  U1LCR_bit.DLAB  = 0x1;    //enable DLAB
+  //with one row
+  // U0LCR = 0x83;
+
+  //devisor
+  U1DLL = divisor & 0xFF;
+  U1DLM = (divisor >> 8) & 0xFF;
+  U1LCR &= ~0x80;
+
+  //set functionalite to pins:  port0.8 -> TX1,  port0.9 -> RXD1
+  PINSEL0_bit.P0_8 = 0x1;
+  PINSEL0_bit.P0_9 = 0x1;
+  //with one row
+  //PINSEL0 = PINSEL0 & ~0xF | 0x5;  
+  U1FCR = UART_FIFO_8;
 }
 
 int uart1Putch(int ch)
