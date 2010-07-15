@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace testANT_receiver
+namespace HRV_tracker
 {
     static class Program
     {

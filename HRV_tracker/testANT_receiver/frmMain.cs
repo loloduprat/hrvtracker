@@ -13,7 +13,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 
-namespace testANT_receiver
+namespace HRV_tracker
 {
 
 
@@ -367,6 +367,7 @@ namespace testANT_receiver
             ptr_EventCallback = Marshal.GetFunctionPointerForDelegate(ChannelEventCallback);
             ptr_ResponseCallback = Marshal.GetFunctionPointerForDelegate(ResponseCallback);
 
+
             //Create a folder to save program settings and data output
             string save_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "HRV_tracker");
             if (!Directory.Exists(save_path))
@@ -374,7 +375,6 @@ namespace testANT_receiver
                 Directory.CreateDirectory(save_path);
                 MessageBox.Show("Welcome to HRV tracker. Please view the Help documentation for assistance in getting started with this program.\r\n\r\nA folder has been created to store recorded data and program settings at: " + save_path, "HRV tracker");
             }
-
 
             //Simple settings text file to select the default device and baud rate
             string settings_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "HRV_tracker");
@@ -643,14 +643,11 @@ namespace testANT_receiver
                 //save data
                 lblMessage.Text = "Saving data...";
                 Application.DoEvents(); //Update the screen
-
                 string save_path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "HRV_tracker");
                 if (!Directory.Exists(save_path))
                 {
                     Directory.CreateDirectory(save_path);
                 }
-
-
 
                 string fname = DateTime.Now.ToString("yyyy-MM-dd_HHmm") + ".hrm";
                 string filename = Path.Combine(save_path, fname);
@@ -1080,6 +1077,20 @@ namespace testANT_receiver
             }
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("HRV - R-R interval tracking software for tracking heart rate variability.\r\n\r\nANT USB drivers provided by Dynastream Innovations Ltd.", "About HRV tracker");
+        }
+
+        private void contentsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHelp HelpForm = new frmHelp();
+            string path;
+            path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase );
+
+            HelpForm.wbHelp.Navigate(System.IO.Path.Combine(path, "index.html"));
+            HelpForm.Show();
+        }
     }
 
    
