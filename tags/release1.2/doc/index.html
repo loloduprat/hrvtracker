@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HRV tracker documentation</title>
+<style type="text/css">
+<!--
+.style8 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 12px; }
+.style10 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.style11 {font-family: "Courier New", Courier, monospace}
+h1,h2,h3,h4,h5,h6 {
+	font-family: Georgia, Times New Roman, Times, serif;
+}
+h4 {
+	color: #FF0000;
+}
+h2 {
+	color: #666666;
+}
+h3 {
+	color: #666666;
+}
+-->
+</style>
+</head>
+
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="800"><h1>HRV tracker</h1>
+      <h3>Help and support documentation </h3>
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#Introduction">Introduction</a></li>
+        <li><a href="#GettingStarted">Getting started</a></li>
+        <li><a href="#Configuration">Configuring the ANT receiver</a></li>
+        <li><a href="#Manual_recording">Manual recording</a></li>
+        <li><a href="#scripts">Using scripts for automated recording</a></li>
+        <li><a href="#Acknowledgements">Acknowledgements</a></li>
+      </ol>
+      <h3><a name="Introduction" id="Introduction"></a>Introduction</h3>
+      <p>HRV tracker is designed to log R-R intervals from an ANT-compatible heart rate strap. This application can receive data from either a serial-port ANT receiver device (e.g.: the SparkFun ANT USB stick) or the ANT USB receiver stick that ships with many ANT-compatible heart rate monitors and GPS units (e.g.: Garmin ForeRunner series). </p>
+      <p>Features:</p>
+      <ul>
+        <li>Record from either consumer ANT receivers (e.g.: GPS or heart-rate monitors) or serial-port ANT receivers</li>
+        <li>Script-based recording for automated tracking</li>
+        <li>Record R-R intervals to text files for import in analysis applications. Log files are automatically time stamped for improved record-keeping.</li>
+      </ul>
+      <h3><a name="GettingStarted" id="GettingStarted"></a>Getting started</h3>
+      <h4>HRV tracker interface</h4>
+      <p>The HRV tracker application main window is shown in Figure 1. Toolbars are available to configure the ANT receiver device and control recording either manually or from a script. The Heart rate status panel displays heart rate and R-R interval data when the application is recording, and the script status panel displays custom messages to the user when running an automated recording script</p>
+      <p><img src="images/HRV_interface.png" width="1082" height="818" /></p>
+      <h5>Figure 1: HRV tracker interface.</h5>
+      <p>&nbsp;</p>
+      <h4><a name="Configuration" id="Configuration"></a>Configuring the ANT receiver</h4>
+      <p>The ANT receiver device must be configured within HRV tracker before recording. The &quot;Device&quot; toolbar shown in Figure 2 can be used to configure the ANT receiver device:</p>
+      <p><img src="images/device_toolbar.png" width="759" height="28" /></p>
+      <h5>Figure 2: The Device toolbar configures the ANT receiver component, heart-rate strap ID and communications port if using a serial ANT receiver device.</h5>
+      <ul>
+        <li>Select the class of device connected to your computer:
+          <ul>
+              <li>Sparkfun ANT USB: <em>any</em> ANT device that communicates via the serial port in your PC. HRV tracker will use serial communications to receive R-R interval data.</li>
+            <li>Garmin ANT+: a USB stick that commonly ships with heart-rate monitor and GPS receivers. HRV tracker will use USB drivers to receive R-R interval data.</li>
+            <li><em>IMPORTANT NOTE: The Garmin ANT Agent must not be running when using the HRV tracker as is may prevent HRV tracker from accessing the ANT receiver device.</em></li>
+          </ul>
+        </li>
+        <li>Enter the heart-rate strap device ID if known, or &quot;0&quot; if you wish HRV tracker to connect to any heart-rate strap.
+          <ul>
+              <li><em>Determining the device id: </em>Confirm that the ANT receiver is connected to your computer and that you are wearing the heart-rate strap. Start &quot;manual recording&quot;and ensure that heart rate data is being received by HRV tracker. Select Device -&gt; Get Device ID from the program menu and the device ID for the currently transmitting heart-rate strap will be displayed. This number can be entered into the &quot;Device ID&quot; field and HRV tracker will only pair with the designated heart-rate strap.</li>
+          </ul>
+        </li>
+        <li>If using the Sparkfun ANT USB device, select the serial port communication settings.</li>
+      </ul>
+      <p>&nbsp;</p>
+      <h3><a name="Manual_recording" id="Manual_recording"></a>Manual recording</h3>
+      <p>The &quot;Manual recording&quot; toolbar shown in Figure 3 controls manual recording from the heart-rate strap.</p>
+      <p><img src="images/recording_toolbar.png" width="199" height="25" /></p>
+      <h5>Figure 3: Manual recording toolbar. The &quot;Start&quot; and &quot;Stop&quot; buttons control R-R interval logging.</h5>
+      <p>When recording is complete, the R-R intervals are saved to the &quot;HRV_tracker&quot; folder in your &quot;My Documents&quot; location. Heart rate data is saved in the &quot;.hrm&quot; format. An example data log is shown in Figure 4.</p>
+      <p><img src="images/sample_data.png" width="383" height="390" /></p>
+      <h5>Figure 4: Sample HRV_tracker data log in &quot;.hrm&quot; format. The numbers following the [HRData] title are R-R intervals measured in milliseconds.</h5>
+      <p>&nbsp;</p>
+      <h3><a name="scripts" id="scripts"></a>Using scripts for automated recording</h3>
+      <p>Scripts can be used to automate the recording process - for example to separately log R-R intervals for a period of sitting versus a period of standing. Script files are stored as a series of commands in a text file, and can be accessed within the HRV tracker interface using the script toolbar shown in Figure 5. Alternatively, the HRV tracker program can automatically run a script when launched by supplying the script filename as an argument when starting the program (e.g. &quot;HRV_tracker.exe script1.txt&quot;). Figure 6 shows a script executing within the HRV tracker interface.</p>
+      <p><img src="images/script_toolbar.png" width="584" height="26" /></p>
+      <h5>Figure 5: The script toolbar allows access to select and start scripted recordings.</h5>
+      <p><img src="images/HRV_recording_script.png" width="1086" height="819" /></p>
+      <h5>Figure 6: Automated script recording session executing.</h5>
+      <p>Two example scripts are included with the HRV tracker program. Scripts are separated into &quot;stages&quot; in recording. Each line of the script file contains six parameters to define an individual stage of the recording. The format of comma-separated script instructions are shown in Table 1.</p>
+      <h5>Table 1. Script parameter definitions<br />
+      </h5>
+      <table width="54%" border="1" bordercolor="#333333">
+        <tr>
+          <td width="29%" bordercolor="#333333"><span class="style8">Parameter</span></td>
+          <td width="71%" bordercolor="#333333"><span class="style8">Description</span></td>
+        </tr>
+        <tr>
+          <td bordercolor="#333333"><span class="style10">Message to display</span></td>
+          <td bordercolor="#333333"><span class="style10">Message displayed in the script status area during the specified stage. Note, messages cannot contain commas</span></td>
+        </tr>
+        <tr>
+          <td bordercolor="#333333"><span class="style10"> Length of time of stage</span></td>
+          <td bordercolor="#333333"><span class="style10">Length of time the stage lasts in seconds</span></td>
+        </tr>
+        <tr>
+          <td bordercolor="#333333"><span class="style10">Recording</span></td>
+          <td bordercolor="#333333"><span class="style10">Select whether the HRV_tracker will record data during this state (1 = recording active, 0 = no recording)</span></td>
+        </tr>
+        <tr>
+          <td bordercolor="#333333"><span class="style10">Background Red</span></td>
+          <td rowspan="3" bordercolor="#333333"><span class="style10">Definition of background colour of the script status area (values from 0 - 255 for each component)</span></td>
+        </tr>
+        <tr>
+          <td bordercolor="#333333"><span class="style10">Background Green</span></td>
+        </tr>
+        <tr>
+          <td bordercolor="#333333"><span class="style10">Background Blue</span></td>
+        </tr>
+      </table>
+      <p>For example, the following line in a script:</p>
+      <p class="style11"> &quot;Seated position, 15, 0, 255, 255, 255&quot;</p>
+      <p>Will display &quot;Seated position&quot; in the script status area with a white background and wait for 15 seconds,  not recording during this time.</p>
+      <p>A final optional command may be added to the end of the script to launch an analysis program using the results of the recording session. This command commences with &quot;[Analysis]&quot; as the first parameter, and the command for the executable as the second parameter. The following example will launch the Kubios heart-rate variability program after a scripted recording session:</p>
+      <p class="style11">&quot;[Analysis], c:\Program Files\Kubios HRV\kubioshrv.exe&quot;</p>
+      <p>&nbsp;</p>
+      <h3><a name="Acknowledgements" id="Acknowledgements"></a>Acknowledgements</h3>
+      <p>This program contains drivers from Dynastream Innovations Ltd and SI Labs.</p>
+      <p>Configuration and interpretation of the heart-rate data was developed with the help of forum posters (&quot;gdev&quot;) in the Garmin developers forum.<br />
+    </p></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
