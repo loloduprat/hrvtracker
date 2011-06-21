@@ -47,6 +47,8 @@
             this.deviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getDeviceIDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gfToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblRecording = new System.Windows.Forms.ToolStripStatusLabel();
@@ -70,8 +72,6 @@
             this.cbCOMPort = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.txtBaudRate = new System.Windows.Forms.ToolStripTextBox();
-            this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gfToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -192,10 +192,10 @@
             // 
             this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtOutput.Location = new System.Drawing.Point(35, 187);
+            this.txtOutput.Location = new System.Drawing.Point(35, 19);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(343, 88);
+            this.txtOutput.Size = new System.Drawing.Size(402, 256);
             this.txtOutput.TabIndex = 15;
             this.txtOutput.Visible = false;
             // 
@@ -251,10 +251,22 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // contentsToolStripMenuItem
+            // 
+            this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
+            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.contentsToolStripMenuItem.Text = "Contents";
+            this.contentsToolStripMenuItem.Click += new System.EventHandler(this.contentsToolStripMenuItem_Click);
+            // 
+            // gfToolStripMenuItem
+            // 
+            this.gfToolStripMenuItem.Name = "gfToolStripMenuItem";
+            this.gfToolStripMenuItem.Size = new System.Drawing.Size(119, 6);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.aboutToolStripMenuItem.Text = "About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -383,10 +395,11 @@
             // cbDevice
             // 
             this.cbDevice.Items.AddRange(new object[] {
-            "Garmin ANT+",
-            "Sparkfun ANT USB"});
+            "Garmin ANT+ (USB1 & USB2)",
+            "Sparkfun ANT USB",
+            "Garmin ANT+ (legacy USB1)"});
             this.cbDevice.Name = "cbDevice";
-            this.cbDevice.Size = new System.Drawing.Size(121, 25);
+            this.cbDevice.Size = new System.Drawing.Size(180, 25);
             this.cbDevice.SelectedIndexChanged += new System.EventHandler(this.cbDevice_SelectedIndexChanged);
             // 
             // toolStripSeparator4
@@ -436,18 +449,6 @@
             this.txtBaudRate.Size = new System.Drawing.Size(100, 25);
             this.txtBaudRate.Text = "4800";
             // 
-            // contentsToolStripMenuItem
-            // 
-            this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.contentsToolStripMenuItem.Text = "Contents";
-            this.contentsToolStripMenuItem.Click += new System.EventHandler(this.contentsToolStripMenuItem_Click);
-            // 
-            // gfToolStripMenuItem
-            // 
-            this.gfToolStripMenuItem.Name = "gfToolStripMenuItem";
-            this.gfToolStripMenuItem.Size = new System.Drawing.Size(149, 6);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,8 +466,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HRV tracker";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmMain_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
