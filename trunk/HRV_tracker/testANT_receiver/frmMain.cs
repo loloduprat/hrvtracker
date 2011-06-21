@@ -12,6 +12,7 @@ using Microsoft.VisualBasic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using ANT_Managed_Library;
 
 namespace HRV_tracker
 {
@@ -22,8 +23,12 @@ namespace HRV_tracker
     {
 
         //Devices combo box items (cbDevice)
-        // 0 = Garmin device
+        // 0 = Garmin USB2 device (new drives)
         // 1 = Sparkfun device
+        // 2 = Garmin device (legacy drivers)
+        static int DEVICE_GARMIN_USB2 = 0;
+        static int DEVICE_SPARKFUN = 1;
+        static int DEVICE_GARMIN_LEGACY = 2;
         
 
         //Serial port used to connect to SparkFun device
@@ -42,6 +47,9 @@ namespace HRV_tracker
         IntPtr ptr_EventCallback;
         IntPtr ptr_ResponseBuffer;
         IntPtr ptr_EventBuffer;
+        //Callback functions to communicate with Garmin ANT+ using the USB1/USB2 drivers
+        ANT_Device device;
+        ANT_Channel channel;
 
         //Message buffer to communicate with SparkFun device
         List<byte> bbuffer;
@@ -607,16 +615,21 @@ namespace HRV_tracker
                 return;
             }
             //Perform commands to query the device ID
-            if (cbDevice.SelectedIndex == 0)
+            if (cbDevice.SelectedIndex == DEVICE_GARMIN_LEGACY)
             {
                 //Query Garmin ANT+
                 ANT_DLL.ANT_RequestMessage(0, 0x51);
             }
-            else
+            else if (cbDevice.SelectedIndex == DEVICE_SPARKFUN)
             {
                 //Query SparkFun device
                 ANT_send(new byte[] { (byte)ANT_msg._0x4D_MESG_REQUEST_ID, 0x0, 0x51 });
                 Thread.Sleep(50);
+            }
+            else
+            {
+                //Query Garmin ANT+ using USB1/2 drivers
+                device.requestMessage(ANT_ReferenceLibrary.RequestMessageID.CHANNEL_ID_0x51);
             }
 
         }
@@ -690,13 +703,16 @@ namespace HRV_tracker
         private void CloseHRM()
         {
             //Perform commands to close the device
-            if (cbDevice.SelectedIndex == 0)
+            if (cbDevice.SelectedIndex == DEVICE_GARMIN_LEGACY)
             {
                 CloseGarmin();
             }
-            else
+            else if (cbDevice.SelectedIndex == DEVICE_SPARKFUN)
             {
                 CloseSparkfun();
+            } else
+            {
+                CloseGarmin2();
             }
             device_open = false;
             tsDeviceSetup.Enabled = true;
@@ -736,16 +752,23 @@ namespace HRV_tracker
 
 
             //Perform commands to open the device
-            if (cbDevice.SelectedIndex == 0)
+            if (cbDevice.SelectedIndex == DEVICE_GARMIN_LEGACY)
             {
                 if (OpenGarmin() == false)
                 {
                     return false;
                 }
             }
-            else
+            else if (cbDevice.SelectedIndex == DEVICE_SPARKFUN)
             {
                 if (OpenSparkfun() == false)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (OpenGarmin2() == false)
                 {
                     return false;
                 }
@@ -756,6 +779,35 @@ namespace HRV_tracker
             rr_time = -1;
             return true;
         }
+
+        /// <summary>
+        /// Callback used by the .NET DLL for the Garmin device (USB1/2)
+        /// </summary>
+        /// <param name="response"></param>
+        void ChannelResponse(ANT_Response response)
+        {
+            byte[] message_bytes = new byte[response.messageContents.Length + 3];
+            //Add header bytes as expected by the ProcessMessage function
+            message_bytes[2] = response.responseID;
+            response.messageContents.CopyTo(message_bytes, 3);
+            BeginInvoke(new EventHandler(delegate { ProcessMessage(message_bytes); }));
+
+        }
+
+        /// <summary>
+        /// Callback used by the .NET DLL for the Garmin device (USB1/2)
+        /// </summary>
+        /// <param name="response"></param>
+        void DeviceResponse(ANT_Response response)
+        {
+            byte[] message_bytes = new byte[response.messageContents.Length + 3];
+            //Add header bytes as expected by the ProcessMessage function
+            message_bytes[2] = response.responseID;
+            response.messageContents.CopyTo(message_bytes, 3);
+            BeginInvoke(new EventHandler(delegate { ProcessMessage(message_bytes); }));
+            
+        }
+
 
         /// <summary>
         /// Callback supplied to ANT_DLL that is executed whenever a response to a
@@ -863,6 +915,80 @@ namespace HRV_tracker
         {
             ANT_DLL.ANT_CloseChannel(0);
             ANT_DLL.ANT_Close();
+        }
+
+
+        private bool OpenGarmin2()
+        {
+
+            //Initialise the ANT library and connect to ANT module
+            if (device != null)
+            {
+                ANT_Device.shutdownDeviceInstance(ref device);
+                device = null;
+            }
+
+            device = new ANT_Device();         
+
+            if (device == null)
+            {
+                MessageBox.Show("Error initialising ANT module. Ensure the Garmin ANT agent is not running.");
+                return false;
+            }
+            device.ResetSystem();
+
+            channel = device.getChannel(0);
+            
+            //Reset wireless transceiver
+            device.ResetSystem();
+            Thread.Sleep(50);
+
+            //Pass the callback functions to the ANT_DLL library
+            device.deviceResponse += new ANT_Device.DeviceResponseHandler(DeviceResponse);
+            channel.channelResponse += new ANT_Channel.ChannelResponseHandler(ChannelResponse);
+
+            //Set network key for Garmin HRM
+            //The garmin HRM key is "B9A521FBBD72C345"
+            byte[] GarminKey = { 0xb9, 0xa5, 0x21, 0xfb, 0xbd, 0x72, 0xc3, 0x45 };
+            device.setNetworkKey(0, GarminKey);
+            Thread.Sleep(50);
+
+            //Assign the channel
+            //Receive on channel 0, network #0
+            channel.assignChannel(ANT_ReferenceLibrary.ChannelType.BASE_Slave_Receive_0x00, 0);
+
+            //Congifure Channel ID - set up which devices to transmit-receive data from
+            //Set to receive from any device it finds
+            ushort device_id = ushort.Parse(txtDeviceID.Text);
+            channel.setChannelID((ushort)device_id, false, 0, 0);
+            Thread.Sleep(50);
+
+            //Set the receiver search timeout limit
+            channel.setChannelSearchTimeout(0xff);
+            Thread.Sleep(50);
+
+            //Set the messaging period (corresponding to the max number of messages per second)
+            //Messaging period for Garmin HRM is 0x1f86
+            channel.setChannelPeriod(0x1f86);
+            Thread.Sleep(50);
+
+            //Set the radio frequency corresponding to the Garmin watch (frequency 0x39)
+            channel.setChannelFreq(0x39);
+            Thread.Sleep(50);
+
+            //Open the channel to receive data !
+            channel.openChannel();
+
+            return true;
+        }
+
+        /// <summary>
+        /// Close the connection to the Garmin USB1/USB2 device
+        /// </summary>
+        private void CloseGarmin2()
+        {
+            channel.closeChannel();
+            ANT_Device.shutdownDeviceInstance(ref device);
         }
 
         /// <summary>
@@ -1065,15 +1191,15 @@ namespace HRV_tracker
         /// <param name="e"></param>
         private void cbDevice_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbDevice.SelectedIndex == 0)
-            {
-                cbCOMPort.Enabled = false;
-                txtBaudRate.Enabled = false;
-            }
-            else
+            if (cbDevice.SelectedIndex == DEVICE_SPARKFUN)
             {
                 cbCOMPort.Enabled = true;
                 txtBaudRate.Enabled = true;
+            }
+            else
+            {
+                cbCOMPort.Enabled = false;
+                txtBaudRate.Enabled = false;
             }
         }
 
