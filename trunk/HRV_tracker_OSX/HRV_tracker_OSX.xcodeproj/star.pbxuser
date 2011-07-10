@@ -1,0 +1,218 @@
+// !$*UTF8*$!
+{
+	256AC3D80F4B6AC300CF3369 /* HRV_tracker_OSXAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {878, 727}}";
+			sepNavSelRange = "{484, 0}";
+			sepNavVisRange = "{0, 1226}";
+			sepNavWindowFrame = "{{164, 0}, {1037, 714}}";
+		};
+	};
+	256AC3D90F4B6AC300CF3369 /* HRV_tracker_OSXAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1160, 2431}}";
+			sepNavSelRange = "{4545, 0}";
+			sepNavVisRange = "{3667, 1938}";
+			sepNavWindowFrame = "{{183, 155}, {1037, 714}}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = F87B9C0613C6715800CDC458 /* HRV_tracker_OSX */;
+		activeTarget = 8D1107260486CEB800E47090 /* HRV_tracker_OSX */;
+		addToTargets = (
+			8D1107260486CEB800E47090 /* HRV_tracker_OSX */,
+		);
+		breakpoints = (
+		);
+		codeSenseManager = F87B9C1313C6717A00CDC458 /* Code sense */;
+		executables = (
+			F87B9C0613C6715800CDC458 /* HRV_tracker_OSX */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA23EDF0692099D00951B8B" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					203,
+					20,
+					203,
+					203,
+					201,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					700,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 331945038;
+			PBXWorkspaceStateSaveDate = 331945038;
+		};
+		perUserProjectItems = {
+			F8753FCA13C9188E00944508 /* PBXTextBookmark */ = F8753FCA13C9188E00944508 /* PBXTextBookmark */;
+			F8753FD613C918ED00944508 /* PBXTextBookmark */ = F8753FD613C918ED00944508 /* PBXTextBookmark */;
+			F875405313C92E8900944508 /* PBXTextBookmark */ = F875405313C92E8900944508 /* PBXTextBookmark */;
+			F875405413C92E8900944508 /* PBXTextBookmark */ = F875405413C92E8900944508 /* PBXTextBookmark */;
+			F875406C13C9334500944508 /* PBXTextBookmark */ = F875406C13C9334500944508 /* PBXTextBookmark */;
+		};
+		sourceControlManager = F87B9C1213C6717A00CDC458 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {978, 586}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 265}";
+			sepNavWindowFrame = "{{251, 147}, {1037, 714}}";
+		};
+	};
+	8D1107260486CEB800E47090 /* HRV_tracker_OSX */ = {
+		activeExec = 0;
+		executables = (
+			F87B9C0613C6715800CDC458 /* HRV_tracker_OSX */,
+		);
+	};
+	F8753F0313C8F9CA00944508 /* libant.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {878, 14300}}";
+			sepNavSelRange = "{29557, 118}";
+			sepNavVisRange = "{28756, 1542}";
+		};
+	};
+	F8753F0413C8F9CA00944508 /* libant.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {878, 3172}}";
+			sepNavSelRange = "{4569, 0}";
+			sepNavVisRange = "{3583, 1206}";
+			sepNavWindowFrame = "{{105, 262}, {1037, 714}}";
+		};
+	};
+	F8753FCA13C9188E00944508 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8753F0413C8F9CA00944508 /* libant.h */;
+		name = "libant.h: 210";
+		rLen = 0;
+		rLoc = 4569;
+		rType = 0;
+		vrLen = 1206;
+		vrLoc = 3583;
+	};
+	F8753FD613C918ED00944508 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = F8753F0313C8F9CA00944508 /* libant.c */;
+		name = "libant.c: 1049";
+		rLen = 118;
+		rLoc = 29557;
+		rType = 0;
+		vrLen = 1542;
+		vrLoc = 28756;
+	};
+	F875405313C92E8900944508 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D80F4B6AC300CF3369 /* HRV_tracker_OSXAppDelegate.h */;
+		name = "HRV_tracker_OSXAppDelegate.h: 20";
+		rLen = 0;
+		rLoc = 484;
+		rType = 0;
+		vrLen = 1226;
+		vrLoc = 0;
+	};
+	F875405413C92E8900944508 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* HRV_tracker_OSXAppDelegate.m */;
+		name = "HRV_tracker_OSXAppDelegate.m: 81";
+		rLen = 0;
+		rLoc = 1896;
+		rType = 0;
+		vrLen = 1167;
+		vrLoc = 0;
+	};
+	F875406C13C9334500944508 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 256AC3D90F4B6AC300CF3369 /* HRV_tracker_OSXAppDelegate.m */;
+		name = "HRV_tracker_OSXAppDelegate.m: 164";
+		rLen = 0;
+		rLoc = 4545;
+		rType = 0;
+		vrLen = 1938;
+		vrLoc = 3667;
+	};
+	F87B9C0613C6715800CDC458 /* HRV_tracker_OSX */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = HRV_tracker_OSX;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	F87B9C1213C6717A00CDC458 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	F87B9C1313C6717A00CDC458 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+}
