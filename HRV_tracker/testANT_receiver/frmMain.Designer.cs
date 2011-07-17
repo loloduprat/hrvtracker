@@ -41,6 +41,7 @@
             this.tmrStage = new System.Windows.Forms.Timer(this.components);
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtOutput = new System.Windows.Forms.TextBox();
+            this.lblHRInvalid = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,6 +73,7 @@
             this.cbCOMPort = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.txtBaudRate = new System.Windows.Forms.ToolStripTextBox();
+            this.tmrCheckConnection = new System.Windows.Forms.Timer(this.components);
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -179,6 +181,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.txtOutput);
+            this.groupBox5.Controls.Add(this.lblHRInvalid);
             this.groupBox5.Controls.Add(this.lblMessage);
             this.groupBox5.Controls.Add(this.lblTime);
             this.groupBox5.Location = new System.Drawing.Point(12, 205);
@@ -192,12 +195,27 @@
             // 
             this.txtOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtOutput.Location = new System.Drawing.Point(35, 19);
+            this.txtOutput.Location = new System.Drawing.Point(407, 19);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.Size = new System.Drawing.Size(402, 256);
             this.txtOutput.TabIndex = 15;
             this.txtOutput.Visible = false;
+            // 
+            // lblHRInvalid
+            // 
+            this.lblHRInvalid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHRInvalid.BackColor = System.Drawing.Color.Red;
+            this.lblHRInvalid.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHRInvalid.Location = new System.Drawing.Point(9, 22);
+            this.lblHRInvalid.Name = "lblHRInvalid";
+            this.lblHRInvalid.Size = new System.Drawing.Size(800, 245);
+            this.lblHRInvalid.TabIndex = 16;
+            this.lblHRInvalid.Text = "Heart rate connection lost.\r\nPlease adjust transmitter strap.";
+            this.lblHRInvalid.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblHRInvalid.Visible = false;
             // 
             // menuStrip1
             // 
@@ -449,6 +467,11 @@
             this.txtBaudRate.Size = new System.Drawing.Size(100, 25);
             this.txtBaudRate.Text = "4800";
             // 
+            // tmrCheckConnection
+            // 
+            this.tmrCheckConnection.Interval = 1000;
+            this.tmrCheckConnection.Tick += new System.EventHandler(this.tmrCheckConnection_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,6 +552,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator gfToolStripMenuItem;
+        private System.Windows.Forms.Timer tmrCheckConnection;
+        private System.Windows.Forms.Label lblHRInvalid;
     }
 }
 
