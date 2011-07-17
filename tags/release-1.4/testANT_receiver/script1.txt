@@ -1,0 +1,12 @@
+﻿//Any comment beginning with "//" is ignored
+//Format of script is:
+//Message to display, length of time of stage (seconds), recording (1=yes, 2=no), background red, background green, background blue (rgb values from 0 - 255)
+//eg: 
+//Seated position, 15, 0, 255, 255, 255
+//...will display "Seated position" with white background and wait for 15 seconds, and not record during this time
+//NOTE: message cannot contain commas
+Preparation for lying, 60, 0, 0, 0, 255
+Lying on back, 150, 1, 0, 255, 0
+Preparation for standing, 30, 1, 0, 0, 255
+Standing position, 180, 1, 0, 255, 0
+[Analysis], c:\Program Files\Kubios HRV\kubioshrv.exe
