@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRV_tracker", "testANT_receiver\HRV_tracker.csproj", "{A20A421A-5967-4675-9E5C-AFC15A9002FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRV_shutdown", "HRV_shutdown\HRV_shutdown.csproj", "{5D817F7F-A593-4331-A89E-21086102E5BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A20A421A-5967-4675-9E5C-AFC15A9002FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A20A421A-5967-4675-9E5C-AFC15A9002FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A20A421A-5967-4675-9E5C-AFC15A9002FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A20A421A-5967-4675-9E5C-AFC15A9002FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D817F7F-A593-4331-A89E-21086102E5BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D817F7F-A593-4331-A89E-21086102E5BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D817F7F-A593-4331-A89E-21086102E5BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D817F7F-A593-4331-A89E-21086102E5BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
