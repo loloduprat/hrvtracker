@@ -29,6 +29,9 @@ namespace HRV_tracker
         static int DEVICE_GARMIN_USB2 = 0;
         static int DEVICE_SPARKFUN = 1;
         static int DEVICE_GARMIN_LEGACY = 2;
+
+        //String for the version of this software
+        string version = "Version 1.5";
         
 
         //Serial port used to connect to SparkFun device
@@ -66,6 +69,8 @@ namespace HRV_tracker
 
         //Determine if HR data is currently being logged
         bool is_recording;
+        //Indicate if a valid heart rate signal is detected (true = valid signal, continue logging data; false = signal lost, pause collecting data)
+        bool HRsignalValid;
 
         //Current HR and RR tracking values/buffers
         int hr_counter = -1;    //Garmin watch sends out a counter each time a new HR data packet is generated
@@ -73,6 +78,7 @@ namespace HRV_tracker
         List<int> rr_intervals; //list of RR intervals for this logging session
         DateTime start_time;    //time this logging session commenced
         bool device_open = false;   //connection currently open to ANT transmitter
+        List<DateTime> last_HR;   //stores the time of the last received HR message to use when detecting if the HR connection is lost
 
 
         /// <summary>
@@ -323,6 +329,7 @@ namespace HRV_tracker
                     if (is_recording)
                     {
                         rr_intervals.Add(rr);
+                        last_HR.Add(DateTime.Now);
                     }
                     //Write the processed message
                     string msg_str = hr_counter.ToString() + ", " + msg[11].ToString() + "BPM, " + rr.ToString() + "ms\r\n";
@@ -598,8 +605,11 @@ namespace HRV_tracker
                return;
            }
             rr_intervals = new List<int>();
+            last_HR = new List<DateTime>();
             start_time = DateTime.Now;
             is_recording = true;
+            HRsignalValid = true;
+            tmrCheckConnection.Enabled = true;
             lblRecording.Text = "Recording...";
         }
 
@@ -667,6 +677,8 @@ namespace HRV_tracker
 
                 StreamWriter sr = new StreamWriter(filename);
                 sr.WriteLine("[Params]");
+                sr.WriteLine("Version=102");    
+                sr.WriteLine("Monitor=1");
                 sr.WriteLine("Date=" + start_time.ToString("yyyyMMdd"));
                 sr.WriteLine("StartTime="+start_time.ToString("HH:mm:ss"));
                 int total_HR = 0;
@@ -1205,7 +1217,7 @@ namespace HRV_tracker
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("HRV - R-R interval tracking software for tracking heart rate variability.\r\n\r\nANT USB drivers provided by Dynastream Innovations Ltd.", "About HRV tracker");
+            MessageBox.Show("HRV - R-R interval tracking software for tracking heart rate variability.\r\n\r\nANT USB drivers provided by Dynastream Innovations Ltd.\r\n\r\n" + version, "About HRV tracker");
         }
 
         private void contentsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1216,6 +1228,58 @@ namespace HRV_tracker
 
             HelpForm.wbHelp.Navigate(System.IO.Path.Combine(path, "index.html"));
             HelpForm.Show();
+        }
+
+        private void tmrCheckConnection_Tick(object sender, EventArgs e)
+        {
+            //If currently recording, this will check that a heart rate signal is coming through and set the 
+            //flag connectionOK = true if a valid signal is detected.
+            //Valid signal is defined as heart rate < 250 BPM and > 20BPM for the last 5 data entries
+            int num_check_beats = 3;  //number of beats to check
+            double lowest_HR = 20;  //lowest HR before deciding HR signal is invalid (BPM)
+            double highest_HR = 250;  //highest HR before deciding HR signal is invalid (BPM)
+
+            if (is_recording)
+            {
+                bool isSignalValid = true;
+                DateTime now_time = DateTime.Now;
+                if (last_HR.Count >= 1)
+                {
+                    if (now_time.Subtract(last_HR[last_HR.Count - 1]).TotalSeconds >= 3)
+                    {
+                        //Heart rate not detected for at least 3 seconds - inform that transmitter may need adjustment
+                        isSignalValid = false;
+                    }
+                }
+                if (last_HR.Count >= num_check_beats)
+                {
+                    double total_seconds;
+                    total_seconds = now_time.Subtract(last_HR[last_HR.Count - num_check_beats]).TotalSeconds;
+                    if (total_seconds >= num_check_beats * (60.0 / lowest_HR) || total_seconds <= num_check_beats * (60.0 / highest_HR))
+                    {
+                        isSignalValid = false;
+                    }
+                }
+
+                HRsignalValid = isSignalValid;
+                if (HRsignalValid)
+                {
+                    lblHRInvalid.Visible = false;
+                    this.Invalidate();
+                }
+                else
+                {
+                    lblHRInvalid.Visible = true;
+                    this.Invalidate();
+                }
+
+            }
+            else
+            {
+                //Switch off timer if recording stopped (in case not caught elsewhere)
+                tmrCheckConnection.Enabled = false;
+            }
+
         }
     }
 

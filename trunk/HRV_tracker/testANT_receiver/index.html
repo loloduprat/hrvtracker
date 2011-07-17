@@ -37,6 +37,7 @@ h3 {
         <li><a href="#Configuration">Configuring the ANT receiver</a></li>
         <li><a href="#Manual_recording">Manual recording</a></li>
         <li><a href="#scripts">Using scripts for automated recording</a></li>
+        <li><a href="#hr_connection">Online heartrate connection detection</a></li>
         <li><a href="#Acknowledgements">Acknowledgements</a></li>
       </ol>
       <h3><a name="Introduction" id="Introduction"></a>Introduction</h3>
@@ -60,9 +61,11 @@ h3 {
       <ul>
         <li>Select the class of device connected to your computer:
           <ul>
+              <li>Garmin ANT+ (USB1 &amp; USB2): Compatible with the legacy USB1 and newer USB2 Garmint ANT+ receiver devices, a USB stick that commonly ships with heart-rate monitor and GPS receivers.</li>
               <li>Sparkfun ANT USB: <em>any</em> ANT device that communicates via the serial port in your PC. HRV tracker will use serial communications to receive R-R interval data.</li>
-            <li>Garmin ANT+: a USB stick that commonly ships with heart-rate monitor and GPS receivers. HRV tracker will use USB drivers to receive R-R interval data.</li>
-            <li><em>IMPORTANT NOTE: The Garmin ANT Agent must not be running when using the HRV tracker as is may prevent HRV tracker from accessing the ANT receiver device.</em></li>
+            <li>Garmin ANT+ (legacy USB1): HRV tracker will use older USB drivers to receive R-R interval data from legacy USB1 Garmin devices. Use this mode only if the (USB1 &amp; USB2) mode does not function.</li>
+            <li><strong><em>IMPORTANT NOTE: The Garmin ANT Agent must not be running when using the HRV tracker as is may prevent HRV tracker from accessing the ANT receiver device.<br />
+            </em></strong></li>
           </ul>
         </li>
         <li>Enter the heart-rate strap device ID if known, or &quot;0&quot; if you wish HRV tracker to connect to any heart-rate strap.
@@ -123,6 +126,13 @@ h3 {
       <p>Will display &quot;Seated position&quot; in the script status area with a white background and wait for 15 seconds,  not recording during this time.</p>
       <p>A final optional command may be added to the end of the script to launch an analysis program using the results of the recording session. This command commences with &quot;[Analysis]&quot; as the first parameter, and the command for the executable as the second parameter. The following example will launch the Kubios heart-rate variability program after a scripted recording session:</p>
       <p class="style11">&quot;[Analysis], c:\Program Files\Kubios HRV\kubioshrv.exe&quot;</p>
+      <h3><a name="hr_connection" id="hr_connection"></a>Online heartrate connection detection</h3>
+      <p>If the tracker does not detect a heart beat for at least 3 seconds, or if the heartbeat data indicates a heart rate outside the range of 20-250 beats per minute, a message will appear to check and adjust the transmitter strap. If you frequently experience problems obtaining a reliable heart rate signal try:</p>
+      <ul>
+        <li>Replacing the battery in the transmitter strap</li>
+        <li>Tightening the strap so there is a firmer connection to the body</li>
+        <li>Wet the connection pads either with water or electrode gel.</li>
+      </ul>
       <p>&nbsp;</p>
       <h3><a name="Acknowledgements" id="Acknowledgements"></a>Acknowledgements</h3>
       <p>This program contains drivers from Dynastream Innovations Ltd and SI Labs.</p>
